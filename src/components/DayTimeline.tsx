@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import type { DayItem } from '../types/plan'
 

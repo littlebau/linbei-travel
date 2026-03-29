@@ -1,8 +1,8 @@
+import Link from 'next/link'
 import type { TripSummary } from '../types/plan'
 
 interface Props {
   trips: TripSummary[]
-  onSelect: (id: string) => void
 }
 
 const statusLabel: Record<string, { label: string; color: string }> = {
@@ -17,7 +17,7 @@ function formatDateRange(start: string, end: string) {
   return `${s.getFullYear()} · ${s.getMonth()+1}/${s.getDate()} — ${e.getMonth()+1}/${e.getDate()}`
 }
 
-export default function PortalHome({ trips, onSelect }: Props) {
+export default function PortalHome({ trips }: Props) {
   return (
     <div className="min-h-screen bg-[#07080f]">
       {/* Header */}
@@ -38,7 +38,7 @@ export default function PortalHome({ trips, onSelect }: Props) {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {trips.map((trip) => (
-              <TripCard key={trip.id} trip={trip} onSelect={onSelect} />
+              <TripCard key={trip.id} trip={trip} />
             ))}
           </div>
         )}
@@ -47,12 +47,12 @@ export default function PortalHome({ trips, onSelect }: Props) {
   )
 }
 
-function TripCard({ trip, onSelect }: { trip: TripSummary; onSelect: (id: string) => void }) {
+function TripCard({ trip }: { trip: TripSummary }) {
   const status = statusLabel[trip.status] ?? statusLabel.planning
 
   return (
-    <button
-      onClick={() => onSelect(trip.id)}
+    <Link
+      href={`/trips/${trip.id}`}
       className="group relative text-left rounded-2xl overflow-hidden border border-white/5 bg-white/3 hover:border-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40 focus:outline-none focus:ring-2 focus:ring-white/20"
     >
       {/* Gradient cover */}
@@ -105,6 +105,6 @@ function TripCard({ trip, onSelect }: { trip: TripSummary; onSelect: (id: string
           →
         </div>
       </div>
-    </button>
+    </Link>
   )
 }

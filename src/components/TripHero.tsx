@@ -1,11 +1,11 @@
+import Link from 'next/link'
 import type { Trip } from '../types/plan'
 
 interface Props {
   trip: Trip
-  onBack: () => void
 }
 
-export default function TripHero({ trip, onBack }: Props) {
+export default function TripHero({ trip }: Props) {
   const start = new Date(trip.startDate)
   const end = new Date(trip.endDate)
   const dateStr = `${start.getFullYear()}.${String(start.getMonth()+1).padStart(2,'0')}.${String(start.getDate()).padStart(2,'0')} — ${String(end.getMonth()+1).padStart(2,'0')}.${String(end.getDate()).padStart(2,'0')}`
@@ -17,13 +17,13 @@ export default function TripHero({ trip, onBack }: Props) {
 
       <div className="relative max-w-4xl mx-auto px-6 pt-8 pb-12">
         {/* Back button */}
-        <button
-          onClick={onBack}
+        <Link
+          href="/"
           className="flex items-center gap-2 text-slate-500 hover:text-slate-300 text-sm transition-colors mb-8 group"
         >
           <span className="group-hover:-translate-x-0.5 transition-transform">←</span>
           所有旅遊
-        </button>
+        </Link>
 
         <p className="text-xs font-semibold tracking-[0.3em] text-slate-500 uppercase mb-3">林北旅行社</p>
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">{trip.title}</h1>
