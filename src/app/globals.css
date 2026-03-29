@@ -1,17 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  --color-gold: #c9a96e;
-  --color-gold-light: #e2c99a;
-  --color-gold-dim: #7a6442;
-  --color-surface: #141210;
-  --color-border: #2a2720;
-  --color-ink: #f0ebe3;
-  --color-ink-2: #a09890;
-  --color-ink-3: #5a5450;
-  --font-serif: 'Georgia', 'Noto Serif TC', serif;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,20 +11,8 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans TC', sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #0d0c0a;
-  color: #f0ebe3;
-}
-
-.font-serif {
-  font-family: 'Georgia', 'Noto Serif TC', serif;
-}
-
-/* 日系細線分隔 */
-.jp-divider {
-  width: 40px;
-  height: 1px;
-  background: #c9a96e;
-  display: inline-block;
+  background: #0a0a0f;
+  color: #e2e8f0;
 }
