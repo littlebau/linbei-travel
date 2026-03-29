@@ -1,0 +1,17 @@
+{
+  "trips": [
+    {
+      "id": "bali-2026",
+      "title": "峇厘島九日療癒之旅",
+      "destination": "峇厘島，印尼",
+      "startDate": "2026-04-25",
+      "endDate": "2026-05-03",
+      "durationDays": 9,
+      "memberCount": 3,
+      "coverGradient": "from-orange-500 via-rose-500 to-pink-600",
+      "emoji": "🌴",
+      "tags": ["海島", "療癒", "美食"],
+      "status": "upcoming"
+    }
+  ]
+}
