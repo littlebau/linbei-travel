@@ -40,37 +40,431 @@
         "dayNumber": 1,
         "date": "2026-04-25",
         "dayOfWeek": "六",
-        "route": "桃園機場 → 峇厘島 → 水明漾",
-        "meals": { "breakfast": "飛機餐", "lunch": "飛機餐", "dinner": "MoonLite Kitchen and Bar" },
-        "accommodation": { "name": "峇里島塞米亞克萬怡度假飯店", "url": "https://www.agoda.com/zh-tw/courtyard-bali-seminyak-resort_2/hotel/bali-id.html", "checkIn": true, "checkOut": false },
-        "activities": [{ "name": "抵達放鬆", "description": "飯店稍作休息，熟悉環境", "duration": "", "references": [], "cost": null }],
-        "notes": ""
+        "route": "桃園機場 → 峇厘島機場 → 水明漾萬怡飯店",
+        "meals": {
+          "breakfast": "飛機餐",
+          "lunch": "飛機餐",
+          "dinner": "MoonLite Kitchen and Bar"
+        },
+        "accommodation": {
+          "name": "峇里島塞米亞克萬豪萬怡度假飯店",
+          "url": "https://www.agoda.com/zh-tw/courtyard-bali-seminyak-resort_2/hotel/bali-id.html",
+          "checkIn": true,
+          "checkOut": false
+        },
+        "activities": [
+          {
+            "name": "抵達與入住",
+            "description": "出關後接機前往飯店，入住後先休息調整節奏。",
+            "duration": "約 2 小時",
+            "references": [],
+            "cost": null
+          },
+          {
+            "name": "Rooftop 日落晚餐",
+            "description": "步行 5 分鐘到 MoonLite Kitchen and Bar，邊看夕陽邊開啟假期。",
+            "duration": "約 1.5 小時",
+            "references": [
+              {
+                "title": "MoonLite 餐廳連結",
+                "url": "https://share.google/KZCA3kBHMLqfjx0LG"
+              }
+            ],
+            "cost": null
+          }
+        ],
+        "notes": "第一天以恢復體力為主，不排滿行程。"
       },
       {
         "dayNumber": 2,
         "date": "2026-04-26",
         "dayOfWeek": "日",
-        "route": "水明漾逛街 + Potato Head Beach Club 夕陽",
-        "meals": { "breakfast": "飯店早餐", "lunch": "Bo and Bun 越式餐廳", "dinner": "Potato Head Beach Club" },
-        "accommodation": { "name": "峇里島塞米亞克萬怡度假飯店", "url": "", "checkIn": false, "checkOut": false },
+        "route": "水明漾市區逛街 → 咖啡店 → Potato Head Beach Club → SPA",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "Bo and Bun 越式餐廳",
+          "dinner": "Potato Head Beach Club"
+        },
+        "accommodation": {
+          "name": "峇里島塞米亞克萬豪萬怡度假飯店",
+          "url": "https://www.agoda.com/zh-tw/courtyard-bali-seminyak-resort_2/hotel/bali-id.html",
+          "checkIn": false,
+          "checkOut": false
+        },
         "activities": [
-          { "name": "水明漾逛街 + 咖啡", "description": "Titik Temu Coffee 人氣文青咖啡店", "duration": "2小時", "references": [{ "title": "Google Maps", "url": "https://g.co/kgs/csKSABe" }], "cost": null },
-          { "name": "Lluvia Spa 熱石 SPA", "description": "環境幽雅，平台好評 No.1 按摩芳療", "duration": "2小時", "references": [], "cost": null }
+          {
+            "name": "水明漾商圈散策",
+            "description": "逛 Seminyak Village 與周邊選物店，節奏輕鬆。",
+            "duration": "約 2 小時",
+            "references": [
+              {
+                "title": "Seminyak Village",
+                "url": "https://maps.app.goo.gl/ozBWsAiDxMsfgYPa7"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "Titik Temu Coffee",
+            "description": "人氣文青咖啡店，中場休息補充咖啡因。",
+            "duration": "約 1 小時",
+            "references": [
+              {
+                "title": "店家分享",
+                "url": "https://g.co/kgs/csKSABe"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "Potato Head 夕陽晚餐",
+            "description": "海風、夕陽與晚餐一次滿足，是水明漾代表行程。",
+            "duration": "約 2 小時",
+            "references": [
+              {
+                "title": "Potato Head",
+                "url": "https://maps.app.goo.gl/ZU76TG7Lro9Zv3GP6"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "Lluvia Spa 熱石按摩",
+            "description": "晚上安排放鬆療程，消除旅途疲勞。",
+            "duration": "約 2 小時",
+            "references": [],
+            "cost": null
+          }
         ],
-        "notes": ""
+        "notes": "若時間不足可先保留 Potato Head 日落時段。"
       },
       {
         "dayNumber": 3,
         "date": "2026-04-27",
         "dayOfWeek": "一",
-        "route": "石灰岩峽谷 → One Eighty 懸崖泳池 → 烏魯瓦圖廟 + Kecak 火舞",
-        "meals": { "breakfast": "飯店早餐", "lunch": "One Eighty 懸崖海景餐廳", "dinner": "Moggumung Seminyak 韓式料理" },
-        "accommodation": { "name": "峇里島塞米亞克萬怡度假飯店", "url": "", "checkIn": false, "checkOut": false },
+        "route": "GWK → Tanah Barak Cliff → One Eighty → 烏魯瓦圖廟 + Kecak 火舞",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "One Eighty 懸崖海景餐廳",
+          "dinner": "Moggumung Seminyak 韓式料理"
+        },
+        "accommodation": {
+          "name": "峇里島塞米亞克萬豪萬怡度假飯店",
+          "url": "https://www.agoda.com/zh-tw/courtyard-bali-seminyak-resort_2/hotel/bali-id.html",
+          "checkIn": false,
+          "checkOut": false
+        },
         "activities": [
-          { "name": "Tanah Barak 石灰岩峽谷步道", "description": "壯觀的石灰岩地形，適合拍照", "duration": "1小時", "references": [], "cost": null },
-          { "name": "烏魯瓦圖廟 + Kecak 火舞", "description": "峇里島最壯觀廟宇，日落時分有火舞表演", "duration": "2小時", "references": [], "cost": null }
+          {
+            "name": "神鷹文化公園（GWK）",
+            "description": "先看地標雕像與園區景觀，再往南部絕景移動。",
+            "duration": "約 1.5 小時",
+            "references": [
+              {
+                "title": "GWK 地圖",
+                "url": "https://maps.app.goo.gl/3wJfgZQAmGLeRrjSA"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "Tanah Barak Cliff 石灰岩峽谷",
+            "description": "藍色公路與石灰岩斷崖，適合拍照停留。",
+            "duration": "約 1 小時",
+            "references": [
+              {
+                "title": "Tanah Barak",
+                "url": "https://maps.app.goo.gl/tpT4bQpZzv3edbUx5"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "One Eighty 懸崖泳池",
+            "description": "懸崖無邊際泳池與海景午餐，行程高光時段。",
+            "duration": "約 2.5 小時",
+            "references": [
+              {
+                "title": "One Eighty",
+                "url": "https://maps.app.goo.gl/Kgdf6KB8NRHT3VUJ9"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "烏魯瓦圖廟 + Kecak 火舞",
+            "description": "日落斷崖古廟加上火舞表演，壓軸氛圍很強。",
+            "duration": "約 2 小時",
+            "references": [],
+            "cost": null
+          }
         ],
-        "notes": ""
+        "notes": "此日移動較多，建議提早出發並保留塞車彈性。"
+      },
+      {
+        "dayNumber": 4,
+        "date": "2026-04-28",
+        "dayOfWeek": "二",
+        "route": "水明漾 → 德哥拉朗梯田 → 烏布皇宮 → Seniman Coffee → Adiwana Suweta",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "梯田景觀餐廳（Alas Harum 一帶）",
+          "dinner": "Kebun Bistro"
+        },
+        "accommodation": {
+          "name": "阿迪瓦納蘇維塔（Adiwana Suweta）",
+          "url": "https://vocus.cc/article/67a813d4fd8978000165ae91",
+          "checkIn": true,
+          "checkOut": false
+        },
+        "activities": [
+          {
+            "name": "德哥拉朗梯田（Alas Harum）",
+            "description": "綠意梯田與叢林景觀，行程轉為山區療癒節奏。",
+            "duration": "約 2 小時",
+            "references": [
+              {
+                "title": "梯田分享",
+                "url": "https://share.google/TKgsT0aBgKWCvOuNu"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "烏布皇宮與市區散步",
+            "description": "皇宮、水皇宮周邊與烏布街區逛街採買。",
+            "duration": "約 3 小時",
+            "references": [
+              {
+                "title": "烏布逛街地圖",
+                "url": "http://awomantrip.com/blog/bali/bali-shopping/ubud-shopping-map/"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "Seniman Coffee",
+            "description": "曾被列為亞洲 Top 50 的烏布咖啡店。",
+            "duration": "約 45 分鐘",
+            "references": [
+              {
+                "title": "Seniman Coffee",
+                "url": "https://share.google/TKgsT0aBgKWCvOuNu"
+              }
+            ],
+            "cost": null
+          }
+        ],
+        "notes": "第四天為轉換住宿日，收行李時間要預留。"
+      },
+      {
+        "dayNumber": 5,
+        "date": "2026-04-29",
+        "dayOfWeek": "三",
+        "route": "聖猴森林 → Pison Cafe → 狗狗瑜珈課 → 烏布市區 → 飯店 SPA",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "Pison Cafe",
+          "dinner": "L'Osteria Pizza e Cucina Ubud"
+        },
+        "accommodation": {
+          "name": "阿迪瓦納蘇維塔（Adiwana Suweta）",
+          "url": "https://vocus.cc/article/67a813d4fd8978000165ae91",
+          "checkIn": false,
+          "checkOut": false
+        },
+        "activities": [
+          {
+            "name": "聖猴森林",
+            "description": "烏布經典景點，森林步道與猴群互動體驗。",
+            "duration": "約 1.5 小時",
+            "references": [],
+            "cost": null
+          },
+          {
+            "name": "狗狗瑜珈課",
+            "description": "13:30 預約課程，走路可達，輕鬆有趣。",
+            "duration": "約 1 小時",
+            "references": [],
+            "cost": null
+          },
+          {
+            "name": "Tejas Spa",
+            "description": "晚上回飯店做 SPA，維持放鬆節奏。",
+            "duration": "約 1 小時",
+            "references": [],
+            "cost": null
+          }
+        ],
+        "notes": "若白天體力足夠，可加碼烏布市區採買。"
+      },
+      {
+        "dayNumber": 6,
+        "date": "2026-04-30",
+        "dayOfWeek": "四",
+        "route": "烏布瀑布巡禮（Goa Rang Reng / Kanto Lampo / Tegenungan）→ 努沙杜瓦",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "OMMA Club",
+          "dinner": "Bali Collection 周邊餐廳"
+        },
+        "accommodation": {
+          "name": "峇里島努沙杜瓦萬麗度假村（Renaissance Bali Nusa Dua Resort）",
+          "url": "https://www.marriott.com/en-us/hotels/dpsnd-renaissance-bali-nusa-dua-resort/overview/",
+          "checkIn": true,
+          "checkOut": true
+        },
+        "activities": [
+          {
+            "name": "Goa Rang Reng Waterfall",
+            "description": "第一座瀑布，拍照與短程步道停留。",
+            "duration": "約 1 小時",
+            "references": [
+              {
+                "title": "Goa Rang Reng",
+                "url": "https://maps.app.goo.gl/n4zj6DvCYGFfiwDaA"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "Kanto Lampo Waterfall",
+            "description": "石階型瀑布，熱門打卡點。",
+            "duration": "約 1 小時",
+            "references": [
+              {
+                "title": "Kanto Lampo",
+                "url": "https://maps.app.goo.gl/HCTxaqqk81ZsLJTb8"
+              }
+            ],
+            "cost": null
+          },
+          {
+            "name": "Tegenungan Waterfall + OMMA Club",
+            "description": "在景觀餐廳邊看瀑布邊用餐，完成瀑布主題日。",
+            "duration": "約 2 小時",
+            "references": [
+              {
+                "title": "Tegenungan",
+                "url": "https://maps.app.goo.gl/P942qHVSVDNzbSDq6"
+              }
+            ],
+            "cost": null
+          }
+        ],
+        "notes": "今天跨區移動到努沙杜瓦，晚間以休息為主。"
+      },
+      {
+        "dayNumber": 7,
+        "date": "2026-05-01",
+        "dayOfWeek": "五",
+        "route": "努沙杜瓦萬麗度假村耍廢日 → Bali Collection",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "待定（飯店內）",
+          "dinner": "Nusa By/Suka"
+        },
+        "accommodation": {
+          "name": "峇里島努沙杜瓦萬麗度假村（Renaissance Bali Nusa Dua Resort）",
+          "url": "https://www.marriott.com/en-us/hotels/dpsnd-renaissance-bali-nusa-dua-resort/overview/",
+          "checkIn": false,
+          "checkOut": false
+        },
+        "activities": [
+          {
+            "name": "飯店設施放鬆",
+            "description": "泳池、沙灘接駁、度假村設施慢慢玩。",
+            "duration": "全天彈性",
+            "references": [],
+            "cost": null
+          },
+          {
+            "name": "Bali Collection 逛街與晚餐",
+            "description": "下午四點後逛街，晚餐安排在 Nusa By/Suka。",
+            "duration": "約 3 小時",
+            "references": [
+              {
+                "title": "Nusa By/Suka",
+                "url": "https://g.co/kgs/pE57DgL"
+              }
+            ],
+            "cost": null
+          }
+        ],
+        "notes": "第七天刻意留白，讓前幾天的移動節奏沉澱。"
+      },
+      {
+        "dayNumber": 8,
+        "date": "2026-05-02",
+        "dayOfWeek": "六",
+        "route": "Waterbom 水上樂園 → 庫塔海景晚餐",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "樂園內用餐",
+          "dinner": "庫塔海景餐廳"
+        },
+        "accommodation": {
+          "name": "峇里島努沙杜瓦萬麗度假村（Renaissance Bali Nusa Dua Resort）",
+          "url": "https://www.marriott.com/en-us/hotels/dpsnd-renaissance-bali-nusa-dua-resort/overview/",
+          "checkIn": false,
+          "checkOut": false
+        },
+        "activities": [
+          {
+            "name": "Waterbom Bali",
+            "description": "玩水、曬太陽、放鬆拍照，安排整天海島感行程。",
+            "duration": "約 5 小時",
+            "references": [],
+            "cost": null
+          },
+          {
+            "name": "庫塔海景餐廳晚餐",
+            "description": "最後一晚選擇海景晚餐，作為旅程收尾。",
+            "duration": "約 1.5 小時",
+            "references": [
+              {
+                "title": "晚餐地點",
+                "url": "https://maps.app.goo.gl/U8W7yq3PkktMjpgMA"
+              }
+            ],
+            "cost": null
+          }
+        ],
+        "notes": "可視體力調整樂園停留時間，避免太晚回飯店。"
+      },
+      {
+        "dayNumber": 9,
+        "date": "2026-05-03",
+        "dayOfWeek": "日",
+        "route": "飯店早餐 → 機場 → 桃園第一航廈",
+        "meals": {
+          "breakfast": "飯店早餐",
+          "lunch": "機場視情況簡單用餐",
+          "dinner": "回台後自理"
+        },
+        "accommodation": {
+          "name": "回到溫暖的家",
+          "url": "",
+          "checkIn": false,
+          "checkOut": true
+        },
+        "activities": [
+          {
+            "name": "退房與機場報到",
+            "description": "建議 12:40 前抵達機場，保留托運與退稅時間。",
+            "duration": "約 2 小時",
+            "references": [],
+            "cost": null
+          },
+          {
+            "name": "返程航班 CI772",
+            "description": "15:55 起飛，21:20 抵達桃園第一航廈。",
+            "duration": "約 5 小時 25 分",
+            "references": [],
+            "cost": null
+          }
+        ],
+        "notes": "返程日請留意液體、伴手禮與行李重量。"
       }
     ],
     "budget": {

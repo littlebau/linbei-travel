@@ -33,7 +33,7 @@ export default async function TripPage({ params }: { params: Promise<{ id: strin
       <DayTimeline days={trip.days} />
       <BudgetPanel budget={trip.budget} defaultMembers={trip.members.count} />
       <TipsNotes tips={trip.tips} notes={trip.notes} />
-      <footer className="text-center text-xs text-slate-600 py-8">
+      <footer className="text-center text-xs text-slate-300/70 py-10 tracking-wide">
         林北旅行社出品 · 資料由 AI 輔助整理
       </footer>
     </div>

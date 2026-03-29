@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import type { FlightItem } from '../types/plan'
 
 interface Props {
@@ -5,9 +8,9 @@ interface Props {
 }
 
 const typeLabel: Record<string, { label: string; color: string }> = {
-  outbound: { label: '去程', color: 'text-sky-400 bg-sky-400/10 border-sky-400/20' },
-  return:   { label: '回程', color: 'text-violet-400 bg-violet-400/10 border-violet-400/20' },
-  domestic: { label: '國內線', color: 'text-slate-400 bg-slate-400/10 border-slate-400/20' },
+  outbound: { label: 'GO', color: 'text-cyan-100 bg-cyan-500/20 border-cyan-300/40' },
+  return:   { label: 'BACK', color: 'text-fuchsia-100 bg-fuchsia-500/20 border-fuchsia-300/40' },
+  domestic: { label: 'LOCAL', color: 'text-slate-100 bg-slate-500/20 border-slate-300/40' },
 }
 
 function formatDT(dt: string) {
@@ -19,47 +22,56 @@ function formatDT(dt: string) {
 export default function FlightInfo({ flights }: Props) {
   if (!flights?.length) return null
   return (
-    <section className="max-w-4xl mx-auto px-6 py-8">
-      <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-        <span className="text-xl">✈️</span> 參考航班
-      </h2>
-      <div className="rounded-2xl border border-white/8 overflow-hidden">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="bg-white/3 text-slate-500 text-xs uppercase tracking-wide">
-              <th className="text-left px-4 py-3">方向</th>
-              <th className="text-left px-4 py-3">航空 / 班號</th>
-              <th className="text-left px-4 py-3">出發</th>
-              <th className="text-left px-4 py-3">抵達</th>
-              <th className="text-left px-4 py-3 hidden md:table-cell">備注</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-white/5">
-            {flights.map((f, i) => {
-              const t = typeLabel[f.type] ?? typeLabel.domestic
-              return (
-                <tr key={i} className="hover:bg-white/3 transition-colors">
-                  <td className="px-4 py-3">
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${t.color}`}>{t.label}</span>
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="text-white font-medium">{f.airline}</div>
-                    <div className="text-slate-500 font-mono text-xs">{f.flightNumber}</div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="text-slate-200">{f.from}</div>
-                    <div className="text-slate-500 text-xs">{formatDT(f.departureTime)}</div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="text-slate-200">{f.to}</div>
-                    <div className="text-slate-500 text-xs">{formatDT(f.arrivalTime)}</div>
-                  </td>
-                  <td className="px-4 py-3 text-slate-500 text-xs hidden md:table-cell">{f.notes}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+    <section className="max-w-5xl mx-auto px-6 py-9">
+      <div className="mb-4 flex items-center gap-3">
+        <div className="h-8 w-1 rounded-full bg-cyan-300/70" />
+        <h2 className="text-xl font-black tracking-wide text-white">參考航班</h2>
+      </div>
+
+      <div className="space-y-3">
+        {flights.map((f, i) => {
+          const t = typeLabel[f.type] ?? typeLabel.domestic
+          return (
+            <motion.article
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="rounded-2xl border border-white/12 bg-white/6 backdrop-blur-md p-4 md:p-5 shadow-[0_16px_36px_-22px_rgba(0,0,0,0.7)]"
+            >
+              <div className="flex flex-wrap items-center gap-3 mb-3">
+                <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${t.color}`}>
+                  {t.label}
+                </span>
+                <span className="text-slate-100 font-semibold">{f.airline}</span>
+                <span className="text-slate-400 text-xs font-mono">{f.flightNumber}</span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 items-center">
+                <div className="rounded-xl bg-black/20 border border-white/10 px-3 py-2.5">
+                  <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Departure</p>
+                  <p className="text-sm text-white font-medium">{f.from}</p>
+                  <p className="text-xs text-cyan-200 mt-1">{formatDT(f.departureTime)}</p>
+                </div>
+
+                <div className="hidden md:flex items-center justify-center text-slate-300 text-xs">
+                  <span>──────── ✈ ────────</span>
+                </div>
+
+                <div className="rounded-xl bg-black/20 border border-white/10 px-3 py-2.5">
+                  <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">Arrival</p>
+                  <p className="text-sm text-white font-medium">{f.to}</p>
+                  <p className="text-xs text-fuchsia-200 mt-1">{formatDT(f.arrivalTime)}</p>
+                </div>
+              </div>
+
+              {f.notes && (
+                <p className="mt-3 text-xs text-slate-300/80">備註：{f.notes}</p>
+              )}
+            </motion.article>
+          )
+        })}
       </div>
     </section>
   )
