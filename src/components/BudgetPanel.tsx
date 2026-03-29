@@ -8,14 +8,14 @@ interface Props {
   defaultMembers: number
 }
 
-const catCfg: Record<string, { label: string; color: string; dot: string }> = {
-  flights:       { label: '機票',   color: 'text-sky-400 bg-sky-400/10 border-sky-400/20',     dot: 'bg-sky-400' },
-  accommodation: { label: '住宿',   color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20', dot: 'bg-emerald-400' },
-  simCard:       { label: '網路卡', color: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20',    dot: 'bg-yellow-400' },
-  insurance:     { label: '保險',   color: 'text-violet-400 bg-violet-400/10 border-violet-400/20',   dot: 'bg-violet-400' },
-  activity:      { label: '活動',   color: 'text-orange-400 bg-orange-400/10 border-orange-400/20',   dot: 'bg-orange-400' },
-  transport:     { label: '交通',   color: 'text-rose-400 bg-rose-400/10 border-rose-400/20',         dot: 'bg-rose-400' },
-  misc:          { label: '其他',   color: 'text-slate-400 bg-slate-400/10 border-slate-400/20',      dot: 'bg-slate-400' },
+const catCfg: Record<string, { label: string; abbr: string }> = {
+  flights:       { label: '機票',   abbr: 'AIR' },
+  accommodation: { label: '住宿',   abbr: 'STAY' },
+  simCard:       { label: '網路卡', abbr: 'SIM' },
+  insurance:     { label: '保險',   abbr: 'INS' },
+  activity:      { label: '活動',   abbr: 'ACT' },
+  transport:     { label: '交通',   abbr: 'TRN' },
+  misc:          { label: '其他',   abbr: 'ETC' },
 }
 
 export default function BudgetPanel({ budget, defaultMembers }: Props) {
@@ -26,72 +26,114 @@ export default function BudgetPanel({ budget, defaultMembers }: Props) {
   const perPerson = members > 0 ? Math.round(totalAll / members) : 0
 
   return (
-    <section className="max-w-4xl mx-auto px-6 py-8">
-      <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-        <span className="text-xl">💰</span> 費用總覽
-      </h2>
-
-      {/* Includes / Excludes */}
-      <div className="flex flex-wrap gap-2 mb-5 text-xs">
-        {budget.includes?.map((t) => (
-          <span key={t} className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">✅ 含 {t}</span>
-        ))}
-        {budget.excludes?.map((t) => (
-          <span key={t} className="px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">❌ 不含 {t}</span>
-        ))}
+    <section className="max-w-4xl mx-auto px-6 py-10">
+      {/* Section header */}
+      <div className="flex items-baseline gap-4 mb-7">
+        <h2 className="font-serif text-2xl text-[#f0ebe3]">費用總覽</h2>
+        <div className="flex-1 h-px bg-[#2a2720]" />
+        <span className="text-[9px] tracking-[0.4em] text-[#4a4540] uppercase">Budget</span>
       </div>
 
-      {/* Members counter */}
-      <div className="flex items-center gap-4 mb-5 bg-white/3 border border-white/8 rounded-2xl p-4">
-        <span className="text-sm text-slate-400">出遊人數</span>
-        <div className="flex items-center gap-2">
-          <button onClick={() => setMembers(Math.max(1, members-1))}
-            className="w-7 h-7 rounded-full bg-white/8 hover:bg-white/15 text-slate-300 font-bold transition-colors flex items-center justify-center">−</button>
-          <span className="w-8 text-center font-bold text-white text-xl">{members}</span>
-          <button onClick={() => setMembers(members+1)}
-            className="w-7 h-7 rounded-full bg-white/8 hover:bg-white/15 text-slate-300 font-bold transition-colors flex items-center justify-center">+</button>
+      {/* Includes / Excludes */}
+      {(budget.includes?.length || budget.excludes?.length) && (
+        <div className="flex flex-wrap gap-x-6 gap-y-1 mb-7 text-[10px]">
+          {budget.includes?.map((t) => (
+            <span key={t} className="text-[#8a8278]">
+              <span className="text-[#c9a96e] mr-1.5">+</span>{t}
+            </span>
+          ))}
+          {budget.excludes?.map((t) => (
+            <span key={t} className="text-[#5a5450]">
+              <span className="mr-1.5">−</span>{t}
+            </span>
+          ))}
         </div>
-        <div className="ml-auto text-right">
-          <div className="text-xs text-slate-500 mb-0.5">每人費用</div>
-          <div className="text-2xl font-bold text-white">{perPerson.toLocaleString()} <span className="text-sm text-slate-500">TWD</span></div>
+      )}
+
+      {/* Members counter */}
+      <div className="flex items-center gap-6 border-t border-b border-[#2a2720] py-5 mb-6">
+        <span className="text-[9px] tracking-[0.4em] text-[#4a4540] uppercase">Members</span>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setMembers(Math.max(1, members - 1))}
+            className="w-6 h-6 flex items-center justify-center text-[#5a5450] hover:text-[#c9a96e] transition-colors text-lg leading-none"
+          >
+            −
+          </button>
+          <span className="font-serif text-2xl text-[#f0ebe3] tabular-nums w-8 text-center">{members}</span>
+          <button
+            onClick={() => setMembers(members + 1)}
+            className="w-6 h-6 flex items-center justify-center text-[#5a5450] hover:text-[#c9a96e] transition-colors text-lg leading-none"
+          >
+            +
+          </button>
+        </div>
+        <div className="ml-auto flex items-baseline gap-3">
+          <span className="text-[9px] tracking-[0.35em] text-[#4a4540] uppercase">Per Person</span>
+          <span className="font-serif text-3xl text-[#c9a96e] tabular-nums">
+            {perPerson.toLocaleString()}
+          </span>
+          <span className="text-[10px] text-[#5a5450]">TWD</span>
         </div>
       </div>
 
       {/* Line items */}
-      <div className="space-y-2 mb-4">
+      <div className="space-y-0 border-t border-[#2a2720]">
         {budget.items.map((item, i) => {
           const cfg = catCfg[item.category] ?? catCfg.misc
           return (
-            <div key={i} className="flex items-center gap-3 bg-white/2 border border-white/6 rounded-xl px-4 py-3 hover:bg-white/4 transition-colors">
-              <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.dot}`} />
-              <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border flex-shrink-0 ${cfg.color}`}>{cfg.label}</span>
+            <div
+              key={i}
+              className="flex items-baseline gap-4 border-b border-[#1e1c18] py-3.5 hover:bg-[#141210] px-1 transition-colors group"
+            >
+              {/* Category abbr */}
+              <span className="text-[8px] tracking-[0.3em] text-[#4a4540] uppercase flex-shrink-0 w-10">
+                {cfg.abbr}
+              </span>
+
+              {/* Label */}
               <div className="flex-1 min-w-0">
-                <div className="text-sm text-slate-200 truncate">
+                <div className="text-sm text-[#d4cec6]">
                   {item.url ? (
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-sky-400 hover:text-sky-300">{item.label}</a>
+                    <a href={item.url} target="_blank" rel="noopener noreferrer"
+                      className="text-[#c9a96e] hover:text-[#e2c99a] transition-colors">
+                      {item.label} ↗
+                    </a>
                   ) : item.label}
                 </div>
-                {item.unitPrice != null && item.quantity != null && (
-                  <div className="text-[10px] text-slate-600">{item.unitPrice.toLocaleString()} × {item.quantity} {item.unit}</div>
+                {(item.unitPrice != null && item.quantity != null) && (
+                  <div className="text-[9px] text-[#4a4540] mt-0.5 tabular-nums">
+                    {item.unitPrice.toLocaleString()} × {item.quantity} {item.unit}
+                  </div>
                 )}
-                {item.notes && <div className="text-[10px] text-slate-600">{item.notes}</div>}
+                {item.notes && (
+                  <div className="text-[9px] text-[#4a4540] mt-0.5">{item.notes}</div>
+                )}
               </div>
-              <div className="text-sm font-semibold text-slate-200 flex-shrink-0">{item.total.toLocaleString()}</div>
+
+              {/* Amount */}
+              <span className="text-sm text-[#a09890] tabular-nums flex-shrink-0">
+                {item.total.toLocaleString()}
+              </span>
             </div>
           )
         })}
       </div>
 
       {/* Total bar */}
-      <div className="rounded-2xl bg-gradient-to-r from-indigo-600/30 to-violet-600/30 border border-indigo-500/20 px-6 py-4 flex justify-between items-center">
+      <div className="flex items-baseline justify-between pt-6 mt-2">
         <div>
-          <div className="text-xs text-slate-400 mb-1">總費用（{members} 人）</div>
-          <div className="text-2xl font-bold text-white">{totalAll.toLocaleString()} <span className="text-sm text-slate-400">TWD</span></div>
+          <div className="text-[9px] tracking-[0.4em] text-[#4a4540] uppercase mb-2">
+            Total · {members} Members
+          </div>
+          <div className="flex items-baseline gap-2">
+            <span className="font-serif text-4xl text-[#f0ebe3] tabular-nums">
+              {totalAll.toLocaleString()}
+            </span>
+            <span className="text-[11px] text-[#5a5450]">TWD</span>
+          </div>
         </div>
-        <div className="text-right">
-          <div className="text-xs text-slate-400 mb-1">每人均攤</div>
-          <div className="text-2xl font-bold text-indigo-300">{perPerson.toLocaleString()} <span className="text-sm text-slate-500">TWD</span></div>
-        </div>
+        <div className="w-10 h-px bg-[#c9a96e]" />
       </div>
     </section>
   )

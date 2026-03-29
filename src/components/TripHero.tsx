@@ -7,39 +7,53 @@ interface Props {
 
 export default function TripHero({ trip }: Props) {
   const start = new Date(trip.startDate)
-  const end = new Date(trip.endDate)
-  const dateStr = `${start.getFullYear()}.${String(start.getMonth()+1).padStart(2,'0')}.${String(start.getDate()).padStart(2,'0')} — ${String(end.getMonth()+1).padStart(2,'0')}.${String(end.getDate()).padStart(2,'0')}`
+  const end   = new Date(trip.endDate)
+  const year  = start.getFullYear()
+  const dateStr = `${start.getMonth()+1}.${String(start.getDate()).padStart(2,'0')} — ${end.getMonth()+1}.${String(end.getDate()).padStart(2,'0')}`
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-[#0e0f1a] to-[#07080f] border-b border-white/5">
-      {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-600/10 blur-3xl rounded-full" />
-
-      <div className="relative max-w-4xl mx-auto px-6 pt-8 pb-12">
-        {/* Back button */}
+    <div style={{ background: '#0d0c0a', borderBottom: '1px solid #2a2720' }}>
+      <div className="max-w-4xl mx-auto px-6 pt-10 pb-14">
+        {/* Back */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-slate-500 hover:text-slate-300 text-sm transition-colors mb-8 group"
+          className="inline-flex items-center gap-2 text-[10px] tracking-[0.35em] text-[#5a5450] hover:text-[#c9a96e] uppercase transition-colors duration-200 mb-12 group"
         >
-          <span className="group-hover:-translate-x-0.5 transition-transform">←</span>
-          所有旅遊
+          <span className="group-hover:-translate-x-0.5 transition-transform inline-block">←</span>
+          All Trips
         </Link>
 
-        <p className="text-xs font-semibold tracking-[0.3em] text-slate-500 uppercase mb-3">林北旅行社</p>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">{trip.title}</h1>
-        <p className="text-slate-400 max-w-xl mb-8 leading-relaxed">{trip.summary}</p>
+        {/* Label row */}
+        <div className="flex items-center gap-4 mb-6">
+          <span className="text-[9px] tracking-[0.4em] text-[#5a5450] uppercase">LINBEI TRAVEL</span>
+          <span className="w-6 h-px bg-[#2a2720]" />
+          <span className="text-[9px] tracking-[0.4em] text-[#5a5450] uppercase">{year}</span>
+        </div>
+
+        {/* Title */}
+        <h1 className="font-serif text-4xl md:text-5xl text-[#f0ebe3] leading-tight tracking-tight mb-2">
+          {trip.title}
+        </h1>
+
+        {/* Gold divider */}
+        <div className="w-12 h-px bg-[#c9a96e] mb-6" />
+
+        {/* Summary */}
+        <p className="text-[#8a8278] text-sm leading-relaxed max-w-lg mb-10">
+          {trip.summary}
+        </p>
 
         {/* Stats row */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-6">
           {[
-            { icon: '📍', label: trip.destination },
-            { icon: '📅', label: dateStr },
-            { icon: '🕐', label: `${trip.durationDays} 天` },
-            { icon: '👥', label: `${trip.members.count} 人 · ${trip.members.names.join('、')}` },
+            { label: 'DESTINATION', value: trip.destination },
+            { label: 'DATE',        value: dateStr },
+            { label: 'DURATION',    value: `${trip.durationDays} Days` },
+            { label: 'MEMBERS',     value: trip.members.names.join('・') },
           ].map((item) => (
-            <div key={item.label} className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 border border-white/8 text-sm text-slate-300">
-              <span>{item.icon}</span>
-              <span>{item.label}</span>
+            <div key={item.label}>
+              <div className="text-[9px] tracking-[0.35em] text-[#4a4540] uppercase mb-1.5">{item.label}</div>
+              <div className="text-sm text-[#d4cec6]">{item.value}</div>
             </div>
           ))}
         </div>
